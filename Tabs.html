@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+ <link rel="icon" href="https://dl.dropboxusercontent.com/s/hcxotxhrghdkohe/hambugfavi.ico" sizes="16x16 32x32 48x48 150x150" type="image/vnd.microsoft.icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>    
+
+<title>Home</title>
+
+<!--
+<div id="tfsearch">
+    <form id="tfnewsearch" method="get" action="https://duckduckgo.com/?q=">
+            <input type="" id="sbox-query" name="q" size="21" maxlength="120" placeholder="ayy !i, !yt, !arr, !tpb, !nyaa, !mal, !ebau, !w, !ebg" autofocus="autofocus">
+    </form>
+  </div>
+
+</header>
+</div>  
+
+<div class="search">    
+     <img src="images/boop/search.png"></a>
+</div>   
+-->
+
+<script>
+var json_url = "http://api.openweathermap.org/data/2.5/weather?id=2643743&appid=832719dabc0aaac91c4a93c2a64e12d4&units=metric";
+var city;
+var temp_curr;
+var temp_low;
+var temp_high;
+var description;
+$.when(
+  $.getJSON(json_url)
+  ).done( function(json_obj) {
+    city = json_obj["name"];
+    temp_curr = (json_obj["main"]["temp"]);
+    temp_low = (json_obj["main"]["temp_min"]);
+    temp_high = (json_obj["main"]["temp_max"]);
+    description = json_obj["weather"][0]["main"];
+
+    insertWeatherInfo();
+  }
+);
+
+function insertWeatherInfo() {
+  //$("#city").append(city);
+  $("#description").append(description);
+  $("#temp_curr").prepend(temp_curr + "&deg;");
+  $("#temp_low").append(temp_low + "&deg; /");
+  $("#temp_high").append(temp_high + "&deg;");
+}
+</script>
+
+<style type="text/css">
+
+
+                    /* colors */
+
+:root {
+--content-bg: #1d1e2a;
+--titlebar: #14151F;
+--altbg: #1a1b26;
+}
+
+
+html, body {  
+   background: url('http://i.imgur.com/mOPGsQ1.jpg') fixed center;
+    background-size: cover;     
+    width: 100%; height: 97%;
+    font-size: 14px;
+    color: #999; 
+    background-color: var(--bg);    
+}
+
+a, a:link, a:visited, a:active, #content > div:nth-child(1) { 
+    color: #999;    
+    opacity: 1;
+}
+
+a:hover, a:active, #content .feed_item_title a:hover { 
+     color: #666 !important
+ }
+
+ a:hover, a:active, a, a:link, a:visited, a:hover, a:active { 
+  text-decoration: none;
+    transition: .2s ease-out; 
+  }
+
+body, a {
+  font-family: "Open Sans", Tahoma; 
+  font-size: 16px;
+   text-decoration: none !important
+}
+
+#content {
+    font-family: "Open Sans", Tahoma; 
+    font-size: 18px;
+    text-decoration: none !important
+}
+
+#content {
+ background-color: var(--content-bg);
+  /*background: url('images/bg/leaves.png');
+  background-size: cover;*/
+ /* height: 330px;*/
+  width: 45%;
+  height: 56%;
+  /*width: 1027px;
+  height: 80%;
+  width: 84%;
+  margin-left: 405px;  
+  margin-top: 160px;  */
+  position: fixed; 
+   margin: 0 auto;  
+  left: 28.5%;
+  top: 23%;
+  word-wrap: break-word;
+  border-top: 0px solid var(--titlebar);
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.2);
+  overflow-y: hidden;
+overflow-x: hidden;
+}
+
+#contentbar {
+ background-color: var(--titlebar); 
+ width: 100%;
+ height: 30px;
+padding: 1px;
+cursor:move; 
+}
+
+
+#searchcontainer {
+  margin: 0 auto;  
+  text-align: center;
+  width: 100%;
+  position: fixed; 
+  left: 1%;
+  top: 13%;
+}
+
+.searchBar {
+  width: 45%;
+  padding: 15px;
+  text-align: center;
+  background-color: var(--titlebar);
+  border: none;
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.2);
+}
+
+#contentbar > nav:nth-child(1) > a:nth-child(1) {
+background-color: var(--content-bg); 
+padding: 4px;
+}
+
+#contentbar > nav:nth-child(1) > a:nth-child(2) {
+ background-color: var(--altbg); 
+padding: 4px;
+}
+
+#content:hover {
+  overflow-y: hidden;
+}
+
+.music {
+position: relative;
+margin-top: 550px;
+}
+
+#widget, .widget, .g-background-default {
+background-color: var(--titlebar); 
+}
+
+/* tumblr css 
+
+.iframe-controls-container.iframe-controls-container--logged-in .tx-button, #s1vq724p3vpozizsd6e, .iframe-controls-container .buttons-container, .iframe-controls-container, .iframe-controls-container .tx-button {
+    display: none !important;
+}  */
+
+body > iframe:first-child { 
+  display: none !important; 
+}
+
+/* weather*/
+h21 {
+  font-size: 25px;
+  cursor: default;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  margin-top: 10px;
+}
+
+#description, h22 {
+  left: 69%;
+  top: 65.8%;
+  z-index: 20;
+  position: fixed; 
+  padding-left: 5px;
+  font-size: 24px;
+}
+
+#header {
+ background: transparent;
+  width: 100%;
+  height: 6%;
+  margin-left: 0px;
+  top: 0;
+  position:fixed;
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,0);
+}
+
+.user > a:nth-child(1) > img:nth-child(1) {
+opacity: 0.6;
+left: 97%; 
+/*margin-top: 810px;  */
+/*width: 50px;
+height: 49px;*/
+width: 2.7%;
+height: 5.3%;
+position: fixed; 
+top: 0.7%;
+}
+
+#side {
+  background-color: transparent;
+  /*width: 5%;
+  height: 920px;
+  position:absolute;
+  left:0;
+  top:0;*/
+  box-shadow: 3px 3px 8px 4px rgba(0,0,0,0);
+  z-index: -1;
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#button, .button > button:nth-child(1) {
+  cursor: pointer;
+  top: 0;
+  z-index: 5;
+  opacity: 1;
+  margin-left: 27px;
+  margin-top: 15px;
+  position: fixed; 
+}
+
+#slide {
+background-color: #1a1b26;
+margin-left: 0px;
+height: 160px;
+width: 110px;
+padding: 15px;
+ margin-top: 56px;
+ position: fixed; 
+ box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.2);
+}
+
+img {
+  opacity: 0.7;  
+}
+
+img:hover {
+   opacity: 0.5;
+}
+
+/*.img { 
+   position: relative; 
+   display: inline-block;   
+}*/
+
+/*
+#content > div:nth-child(2), #medialinks {
+ top: 25%;
+}
+
+#musiclinks, #vidyalinks, #ricelinks, #buylinks {
+ top: 20%;
+}
+
+#content > div:nth-child(2) {
+ position: absolute; 
+ left: 11%;
+  text-align: center;
+}
+
+#musiclinks {
+ position: absolute; 
+ left: 46%;
+ text-align: center;
+}
+
+#vidyalinks {
+ position: absolute; 
+ left: 70%;
+ text-align: center;
+}
+*/
+
+
+.hide {
+    display: none;
+}
+
+#links {
+  text-align: center;
+   left: 15%;
+   top: 40%;
+    position: absolute; 
+}
+
+#medialinks {
+  text-align: center;
+   left: 35%;
+   top: 40%;
+    position: absolute; 
+}
+
+#musiclinks {
+  text-align: center;
+   left: 55%;
+   top: 40%;
+    position: absolute; 
+}
+
+#vidyalinks {
+text-align: center;
+   left: 75%;
+   top: 40%;
+    position: absolute; 
+}
+
+/* greeting*/
+h20 {
+  font-size: 16px;
+  left: 17.5%;
+  top: 25.7%;
+  z-index: 20;
+  position: fixed; 
+}
+
+.time {
+  font-size: 16px;
+  left: 77.3%;
+  top: 62%;
+  z-index: 20;
+  position: fixed; 
+  opacity: 0;
+}
+
+
+h22, #description, #temp_curr, #temp_curr > a:nth-child(1) {
+  color: #999 !important;
+   opacity: 0.9 !important;
+}
+
+.dropdown, .dropbtn, .dropbtn > img:nth-child(1) {
+width: 82px;
+height: 78px;
+border-radius: 30px;
+}
+
+.dropbtn > img:nth-child(1) {
+margin-top: -12px;
+margin-left: -12px;
+opacity: 0.8 !important;
+}
+
+ /* Dropdown Button */
+.dropbtn {
+    background: var(--content-bg);
+    border-radius: 30px;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 85%;
+    margin-top: 170px;  
+    position: fixed; 
+    box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.2);
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #74857C;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: fixed;
+    margin-left: 83%;
+    margin-top: 260px;
+    float: right; 
+    background: var(--content-bg);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-top: 35px solid var(--titlebar);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #666;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: var(--titlebar);
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display:block;
+}
+
+#content2 > iframe:nth-child(4), #content2 > script:nth-child(1) {
+  width: 24.5%;
+  height: 26.2%;
+  overflow: auto !important;
+  word-wrap: break-word;
+  position: fixed; 
+  left: 57.2%;
+  top: 32.8%;    
+  z-index: 10;  
+}
+
+
+                                              /* tabs */
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0px solid var(--titlebar);
+    background-color: var(--titlebar); 
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: #ccc;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: var(--altbg);
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: var(--content-bg);
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+video {
+   opacity: 0.9;
+   /*width:900px;
+   height:450px;*/
+   width: 100%;
+   height: 70%;
+   border: 0;
+   padding: 0px;
+   box-shadow: 3px 3px 3px 2px rgba(0,0,0,0);
+   /*filter: grayscale(80%);*/
+}
+
+</style>
+
+<!--
+<div id="searchcontainer">
+
+
+<form class="search" method="get" action="https://google.com/search">
+                    <input class="searchBar" type="text" name="q" placeholder="Search" autofocus="autofocus" search_/>
+                </form>
+
+</div>  
+
+-->
+
+<div id="content"> 
+
+<div id="contentbar">
+
+<ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'LinksTab')" id="defaultOpen"><img src="http://i.imgur.com/57dtCOk.png"></a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'MusicTab')"><img src="http://i.imgur.com/BBIxne0.png"></a></li>
+    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'MediaTab')"><img src="http://i.imgur.com/DRACrFG.png"></a></li>
+</ul>
+
+<div id="LinksTab" class="tabcontent">
+  <p>
+<div id="links">    
+<a href="http://ayymoko.deviantart.com">DA</a> <br/>  
+<a href="https://userstyles.org/users/268662">Userstyles</a><br/>  
+<a href="https://www.dropbox.com">Dropbox</a><br />
+<a href="http://inbox.google.com">Inbox</a><br />
+<a href="http://mokocchi.com">Mokocchi.com</a><br />
+</div> 
+
+<div id="medialinks">    
+<a href="https://www.youtube.com/feed/subscriptions">YT Feed</a> /
+<a href="https://www.youtube.com/playlist?list=WL">WL</a><br/>  
+<a href="https://www.tumblr.com">Tumblr</a><br />
+<a href="https://www.codecademy.com">Codecademy</a><br />
+<a href="https://alpha.wallhaven.cc">Wallhaven</a><br />
+<a href="http://boards.4chan.org/wg/#s=start">/Stpg-CSS/</a></br>
+</div> 
+
+<div id="musiclinks">    
+<a href="http://newalbumreleases.net/">Nar</a><br/>
+<a href="http://getleaks.org">Leaks</a><br/>
+<a href="http://www.last.fm/">Last.fm</a><br/>
+YT <a href="http://www.youtube-mp3.org/">MP3</a>/<a href="http://mp4.ee">MP4</a>
+<br/>
+<a href="http://scdownloader.net/">SC DL</a><br/>
+</div> 
+
+<div id="vidyalinks">    
+<a href="http://store.steampowered.com/">Steam</a><br/>
+<a href="https://www.reddit.com/r/Overwatch">r/Overwatch</a><br/>
+<a href="http://ebay.com.au">eBay</a><br/>
+<a href="http://www.boohoo.com/aus/page/home">Boohoo</a><br/>
+<a href="http://www.asos.com/au/saved-items">Asos</a><br/>
+</div> 
+
+  </p>
+</div>
+
+<div id="MusicTab" class="tabcontent">
+  <p>
+<div class="Music">
+  <!--
+<iframe width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/179587647&amp;color=ff5500&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"></iframe>
+-->
+<iframe width="100%" height="440" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/186764118&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=true"></iframe>
+</div>
+  </p> 
+</div>
+
+<div id="MediaTab" class="tabcontent">
+  <p>
+
+<div title="Right click to play/loop">
+<video id="video">
+    <source src="video.mp4" type="video/mp4" />
+    <source src="video.ogg" type="video/ogg" />
+</video>
+</div>
+  </p>
+</div>    
+
+<div id="weather">          
+          <h21 id="temp_curr">c   
+          </h21>
+        </div>
+
+</div>        
+
+<script>
+function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    var video = document.getElementById('video');
+    var sources = video.getElementsByTagName('source');
+    var videoUrlsMp4=["http://puu.sh/pXNok/b1c511e966.webm", "http://puu.sh/pXNqu/d9b35782cc.webm", "http://puu.sh/pXNrP/bb8ec388d3.webm", "http://puu.sh/pXNWG/7420e4beca.webm"];
+    var videoUrlsOgg4=["URL1.ogg", "URL2.ogg", "URL3.ogg"];
+    var random_nr = getRandomInt(0, videoUrlsMp4.length-1);
+    sources[0].src = videoUrlsMp4[random_nr ];
+    sources[1].src = videoUrlsOgg4[random_nr ];
+    video.load();
+</script>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+<div id="main" class="show">
+
+<div id="main" class="hide">
+    <div id="Links">
+<p>
+
+ </p>
+    </div> <!-- End #Links -->
+
+<div id="main" class="hide">
+    <div id="Music">
+        <p>
+
+   </p>
+    </div> <!-- #Music -->
+</div> 
+</div>  
+
+<!--
+<div id="bar2"> 
+
+<div id="tbuttons">
+ <img src="images/nbuttons.png">
+</div>
+-->
+
+</div>
+
+</div>
+
+
+<script language="JavaScript">
+$('body').on('click','nav a', function(e) {
+    $('#main').removeClass('hide');
+    $('#main').children().addClass('hide');
+    $($(this).attr('href')).removeClass('hide');
+    e.preventDefault();
+});
+</script>
+
+
+
+
+<script>
+(function (window, document) {
+
+    var layout   = document.getElementById('layout'),
+        side     = document.getElementById('side'),
+        sideLink = document.getElementById('sideLink');
+
+    function toggleClass(element, className) {
+        var classes = element.className.split(/\s+/),
+            length = classes.length,
+            i = 0;
+
+        for(; i < length; i++) {
+          if (classes[i] === className) {
+            classes.splice(i, 1);
+            break;
+          }
+        }
+        // The className is not found
+        if (length === classes.length) {
+            classes.push(className);
+        }
+
+        element.className = classes.join(' ');
+    }
+
+    sideLink.onclick = function (e) {
+        var active = 'active';
+
+        e.preventDefault();
+        toggleClass(layout, active);
+        toggleClass(side, active);
+        toggleClass(sideLink, active);
+    };
+
+}(this, this.document));
+
+</script>
+
+<script>
+    var element_pos = 0;  
+    var iCnt = 0;
+    $(document).ready(function() {
+
+        $(function() { $('#content').draggable(); });
+        $(function() { $("#content").draggable().resizable(); });
+
+        $('#btClickMe').click(function() {
+
+            var dynamic_div = $(document.createElement('div')).css({
+                border: '1px dashed', position: 'absolute', left: element_pos, 
+                top: $('#content').height() + 20,
+                width: '120', height: '120', padding: '3', margin: '0'
+            });
+
+            element_pos = element_pos + $('#content').width() + 20;
+
+         $(dynamic_div).appendTo('#content').draggable();
+
+            iCnt = iCnt + 1;
+        });
+    });
+</script>
+
+</body>
+</html>

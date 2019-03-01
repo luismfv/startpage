@@ -1,0 +1,37 @@
+
+
+I'd highly suggest using Sublime Text or Notepad ++ to edit this startpage (or any tbh).
+
+
+
+	Weather - 
+
+Go to line 36 and change the api.openweathermap.org link to where your location is.
+
+To find your location code go to openweathermap.org, find your location, and in the url grab the numbers and replace the weather ID in the url, so for example for London it becomes
+http://api.openweathermap.org/data/2.5/weather?id=2643743
+
+You can also change units=metric to imperial, depending if you want it in celcius or not.
+
+	Background - 
+
+Line 77, just change the link to the image url.
+
+	Music - 
+
+Line 581, change the embed link, you can find a Soundcloud song or playlist's embed link by clicking Share on it's page.
+Make sure you change the width and height so it's the same.
+
+	Colors -
+
+Change all the colors at :root.
+
+
+	Webms -
+
+Line 619, change all the webm links, they shuffle randomly so you may refresh and get the same webm occasionally.		
+
+
+	Links -
+
+Starting from line 541, you know what to do.	
