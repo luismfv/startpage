@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+                                            <!-- author -->
+<meta name="author" content="Chloe">
+                                            <!-- page title -->
+<title>Salutations</title>
+                                            <!-- favicon -->
+<link rel="shortcut icon" href="img/favi.png" type="image/ico">
+                                            <!-- css -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+                                            <!-- js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                                        <!-- responsive  -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+                                          <!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+<body>
+
+				<!-- content -->
+                <div id="searchcontainer">
+
+
+                    <form class="search" method="get" action="https://google.com/search">
+                                        <input class="searchBar" type="text" name="q" placeholder="Search" autofocus="autofocus" search_/>
+                                    </form>
+                    
+                    </div>
+
+<label onclick="buttonchange()" for="lightswitch"><img id="buttonchange" src="img/moon.png" width="50px"></label>
+<input type="checkbox" id="lightswitch"/>
+
+
+
+<div class="next">
+
+
+               <div class="rows">
+
+		                            <!-- top row -->
+
+<a target="blank" href="https://redacted.ch/index.php" class="square">Redacted</a>
+
+<a target="blank" href="https://animebytes.tv/" class="square">Animebytes</a>
+
+<a target="blank" href="https://iptorrents.com/t" class="square">Iptorrents</a>
+
+<a target="blank" href="https://passthepopcorn.me/index.php" class="square">Passthepopcorns</a>
+
+<a target="blank" href="https://nyaa.pantsu.cat/" class="square">Nyaa</a>
+
+                                       <!-- second row -->
+
+<a target="blank" href="https://bemaniso.ws/index.php" class="square">Bemanisows</a>
+
+<a target="blank" href="https://oppaiti.me/index.php" class="square">Oppaitime</a>
+
+<a target="blank" href="https://gazellegames.net/index.php" class="square">Gazellegames</a>
+
+<a target="blank" href="https://jpopsuki.eu/" class="square">Jpopsuki</a>
+
+                                        <!-- third row -->
+    
+<a target="blank" href="https://avistaz.to/" class="square">Avistaz</a>
+
+<a target="blank" href="https://privatehd.to/torrents" class="square">Privatehd</a>
+
+<a target="blank" href="https://ptpimg.me/" class="square">PTPIMG</a>
+
+<a target="blank" href="http://watora.space/index.html" class="square">Watora</a>
+
+
+
+
+
+                        </div> <!-- close rows -->
+
+
+<div id="random_image" class="image"></div>
+
+</div>	<!-- close next -->
+
+
+
+						<!-- js -->
+
+<!-- moon/sun switch -->
+<script>
+img_array= new Array('img/moon.png','img/sun.png');
+i=0;
+function buttonchange()
+{
+     i++;
+    document.getElementById("buttonchange").src=img_array[i];
+    if(i==img_array.length-1) {
+   i=-1;
+    }  
+}
+</script>
+
+<script>
+    var images=['https://ptpimg.me/0tx4s1.jpg','https://ptpimg.me/f388tf.jpg','https://ptpimg.me/87uua2.jpg','https://ptpimg.me/ym5425.jpg','https://ptpimg.me/am75ya.png'];
+
+    window.onload = function(){
+    var url=images[Math.floor(Math.random() * images.length)];
+    document.getElementById("random_image").style.backgroundImage = 'url('+url+')';
+    };
+
+</script>
+
+</body>
+</html>
